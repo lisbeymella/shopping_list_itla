@@ -1,8 +1,8 @@
 /*
  * Menu.cpp
  *
- *  Created on: May 22, 2016
- *      Author: raydelto
+ *  Created on: june 6, 2016
+ *      Author: lisbeymella
  */
 
 #include "Menu.h"
@@ -60,7 +60,7 @@ void Menu::routeAction(int option)
 		removeItems();
 		break;
 	case 4:
-		cout << "Thanks for using our software, good bye!" << endl;
+		cout << "Thanks for using this software!" << endl;
 	}
 	pause();
 }
@@ -68,19 +68,56 @@ void Menu::routeAction(int option)
 void Menu::listItems()
 {
 	//TODO: Implement this
-	cout << "Implement  Menu::listItems" << endl;
+
+	Element* i = list -> getFirst();
+	int position = 1; // to identify the position of the element
+	while (i != NULL)
+	{
+
+		cout << position++ << " - "<< i -> getName() << endl;
+		i = i -> getNext();
+	}
 }
 
 void Menu::addItems()
 {
 	//TODO: Implement this
-	cout << "Implement  Menu::addItems" << endl;
+	string name;
+
+	cout << " element Name type : ";
+	cin >> name;
+
+	Element* element = new Element(name);
+
+	list -> add(element);
+		cout << " element added successfully "
 }
 
 void Menu::removeItems()
 {
 	//TODO: Implement this
-	cout << "Implement  Menu::removeItems" << endl;
+
+	int position;
+	int counter = 1;
+
+	cout << "the position  the element to remove: ";
+	cin >> position;
+	list -> remove(position);
+	Element* beforeTheRemoved = list -> getFirst();
+
+
+	while (counter < position ) remove and point
+	{
+		counter++;
+		beforeTheRemoved = beforeTheRemoved ->getNext();
+	}
+
+	Element* afterTheRemoved = beforeTheRemoved;
+	afterTheRemoved = afterTheRemoved -> getNext();
+		afterTheRemoved = afterTheRemoved -> getNext();
+
+	beforeTheRemoved -> setNext(afterTheRemoved);
+
 }
 
 void Menu::show()
